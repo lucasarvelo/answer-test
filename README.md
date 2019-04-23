@@ -1,5 +1,7 @@
 # Answer Digital .NET TechTest
 
+### ⚠️ **Do not fork** this repository. Download a copy and push to your own repository. ⚠️
+
 This technical test has 7 steps that you will need to complete. When running it prior to any steps, you will get an error due to a missing functionality.
 
 * Steps 1-3 : `PeopleController.cs`
@@ -8,7 +10,7 @@ This technical test has 7 steps that you will need to complete. When running it 
 * Step 6 : `people-list.html`
 * Step 7 : `person-edit.ts`
 
-Each of the steps will have instructions as to what is expected to be done.
+Each of the steps will have instructions as to what is expected to be done. Do not remove the `TODO` instructions.
 
 **Requirements:**
 
@@ -18,9 +20,9 @@ Each of the steps will have instructions as to what is expected to be done.
 
 **Instructions**
 
-* Run `npm install` in `src/TechTest`
-* Open `TechTest.sln` in your preferred IDE
-* Search for the `TODO` items and work your way through steps 1 to 7
+* Run `npm install` in `src/TechTest`.
+* Open `TechTest.sln` in your preferred IDE.
+* Search for the `TODO` items and work your way through steps 1 to 7.
 * Send your finished solution to your recruiter or to Emma Andrews if applying direct.
 
 **Submission**
@@ -30,5 +32,7 @@ Before submission, make sure to remove the following folders:
 - `src/TechTest/node_modules`
 - `src/TechTest/bin`
 - `src/TechTest/obj`
+- `test/TechTest.Tests/bin`
+- `test/TechTest.Tests/obj`
 
 Or you could run the `cleanup.bat` and it should clean the folders for you.
