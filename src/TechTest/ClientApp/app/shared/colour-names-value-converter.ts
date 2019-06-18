@@ -1,9 +1,7 @@
-import { IColour } from '../people/interfaces/icolour';
+import { IColour } from "../people/interfaces/icolour";
 
 export class ColourNamesValueConverter {
-
   toView(colours: IColour[]) {
-
     // TODO: Step 4
     //
     // Implement the value converter function.
@@ -13,7 +11,6 @@ export class ColourNamesValueConverter {
     //
     // Example: 'Blue, Green, Red'
 
-    return 'Todo';
+    return "Todo";
   }
-
 }
