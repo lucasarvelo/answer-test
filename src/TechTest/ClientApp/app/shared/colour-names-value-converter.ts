@@ -11,6 +11,6 @@ export class ColourNamesValueConverter {
     //
     // Example: 'Blue, Green, Red'
 
-    return "Todo";
+    return colours.map(colour => colour.name).join(", ");
   }
 }
