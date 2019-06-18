@@ -3,7 +3,6 @@ import { IPerson } from '../interfaces/iperson';
 import { IColour } from '../interfaces/icolour';
 
 export class Person implements IPerson {
-
   constructor(person: IPerson) {
     this.id = person.id;
     this.firstName = person.firstName;
@@ -27,7 +26,6 @@ export class Person implements IPerson {
 
   @computedFrom('fullName')
   get palindrome(): boolean {
-
     // TODO: Step 5
     //
     // Implement the palindrome computed field.
@@ -36,7 +34,16 @@ export class Person implements IPerson {
     // spaces and should also be case insensitive.
     //
     // Example: 'Bo Bob' is a palindrome.
+    const fullNameNoSpacesLowerCase = this.fullName
+      .replace(/\s/g, '')
+      .toLowerCase();
+    const fullNameNoSpacesLowerCaseReverse = fullNameNoSpacesLowerCase
+      .split('')
+      .reverse()
+      .join('');
 
-    return false;
+    return fullNameNoSpacesLowerCase === fullNameNoSpacesLowerCaseReverse
+      ? true
+      : false;
   }
 }
