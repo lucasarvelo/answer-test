@@ -1,5 +1,5 @@
 import { autoinject } from 'aurelia-framework';
-import { Router, RouteConfig } from 'aurelia-router'
+import { Router, RouteConfig } from 'aurelia-router';
 import { HttpClient, json } from 'aurelia-fetch-client';
 import { Person } from '../models/person';
 import { IColour } from '../interfaces/icolour';
@@ -7,8 +7,7 @@ import { IPerson } from '../interfaces/iperson';
 
 @autoinject
 export class PersonEdit {
-
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) {}
 
   private heading: string;
   private person: Person;
@@ -22,11 +21,11 @@ export class PersonEdit {
     this.personFetched(await personResponse.json());
 
     const colourResponse = await this.http.fetch('/colours');
-    this.colourOptions = await colourResponse.json() as IColour[];
+    this.colourOptions = (await colourResponse.json()) as IColour[];
   }
 
   personFetched(person: IPerson): void {
-    this.person = new Person(person)
+    this.person = new Person(person);
     this.heading = `Update ${this.person.fullName}`;
     this.routerConfig.navModel.setTitle(`Update ${this.person.fullName}`);
   }
@@ -36,15 +35,26 @@ export class PersonEdit {
   }
 
   async submit() {
-
     // TODO: Step 7
     //
     // Implement the submit and save logic.
     // Send a JSON request to the API with the newly updated
     // this.person object. If the response is successful then
     // the user should be navigated to the list page.
-
-    throw new Error('Not Implemented');
+    await this.http
+      .fetch(`/people/${this.person.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: json(this.person)
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        this.router.navigate('people');
+      });
   }
 
   cancel() {
